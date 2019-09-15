@@ -10,7 +10,7 @@ var countPrimes = function(n) {
         
         if(num % 2 === 0) return false;
         
-        for(let j = 3; j <= num; j += 2) {
+        for(let j = 3; j <= num / 2; j += 2) {
             if(num % j === 0) {
                 return false;
             }
