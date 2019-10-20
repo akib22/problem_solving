@@ -1,0 +1,22 @@
+/**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
+var canConstruct = function(ransomNote, magazine) {
+    const ransomNoteArr = [...new Set(ransomNote)], 
+          magazineArr = [...new Set(magazine)];
+    
+    let hasAllAlpabet = false;
+    
+    for(let i = 0; i < ransomNoteArr.length; i++) {
+        let hasAlpabet = false;
+        for(let j = 0; j < magazineArr.length; j++) {
+            if(ransomNoteArr[i] === magazineArr[j]){
+                hasAlpabet = true;
+            }
+        }
+        if(!hasAlpabet) return false;
+    }
+    return true;
+};
