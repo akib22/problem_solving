@@ -16,3 +16,40 @@ var sortArray = function(nums) {
     }
     return nums;
 };
+
+// merge sort algorithm implementation   
+
+const mergeArr = function (arr1, arr2) {
+    let i = 0, j = 0, mergedArr = [];
+    while(i < arr1.length && j < arr2.length) {
+        if(arr1[i] < arr2[j]){
+            mergedArr.push(arr1[i]);
+            i++;
+        } else {
+           mergedArr.push(arr2[j]);
+           j++; 
+        }
+    }
+
+    while(i < arr1.length) {
+        mergedArr.push(arr1[i]);
+        i++;
+    }
+
+    while(j < arr2.length) {
+        mergedArr.push(arr2[j]);
+        j++;
+    }
+
+     return mergedArr;
+}
+
+const sortArray = function(nums) {
+    if(nums.length === 1) return nums;
+    const mid = Math.ceil(nums.length / 2);
+    const leftSide = sortArray(nums.slice(0, mid));
+    const rightSide = sortArray(nums.slice(mid));
+    return  mergeArr(leftSide, rightSide);
+};
+
+
