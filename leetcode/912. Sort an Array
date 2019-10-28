@@ -53,3 +53,17 @@ const sortArray = function(nums) {
 };
 
 
+// insertion sort 
+
+const sortArray = function(nums) {
+	let currentValue;
+    for(let i = 1; i < nums.length; i++){
+        currentValue = nums[i];
+        for(var j = i - 1; j >= 0 && nums[j] > currentValue; j--) {
+            nums[j+1] = nums[j]
+        }
+        nums[j+1] = currentValue;
+    }
+    return nums;
+};
+
