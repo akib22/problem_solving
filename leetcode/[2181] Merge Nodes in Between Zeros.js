@@ -30,3 +30,24 @@ var mergeNodes = function(head) {
   
     return mergeList.next
 };
+
+// Without extra space
+var mergeNodes = function(head) {
+    let runner = head,
+        mergeRunner = head
+
+    while(runner && runner.next) {
+      if (runner.val === 0) {
+        mergeRunner.next = runner.next
+        mergeRunner = mergeRunner.next
+        runner = runner.next
+      } else {
+        mergeRunner.val += runner.val
+      }
+
+      runner = runner.next
+    }
+  
+    mergeRunner.next = null
+    return head.next
+};
