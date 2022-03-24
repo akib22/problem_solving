@@ -1,6 +1,7 @@
 # The isBadVersion API is already defined for you.
 # def isBadVersion(version: int) -> bool:
 
+# solve using advanced/optimized binary serarch
 class Solution:
   def firstBadVersion(self, n: int) -> int:
     start = 1
