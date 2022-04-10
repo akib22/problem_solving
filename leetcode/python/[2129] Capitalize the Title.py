@@ -26,3 +26,33 @@ class Solution:
 class Solution:
     def capitalizeTitle(self, title: str) -> str:
       return " ".join(word.lower() if len(word) < 3 else word.capitalize() for word in title.split(' '))
+
+'''
+approach: (two pointer)
+- one pointer used for make lowercase char
+- another pointer used for uppercase first char of a word
+'''
+class Solution:
+    def capitalizeTitle(self, title: str) -> str:
+      length = len(title)
+      i = 0
+      j = 0
+      ct = ''
+      
+      while i <= length:
+        if (length == i or title[i] == ' '):
+          ct += ' ' if i != length else ''
+          
+          if  i - j > 2:
+            left = ct[0:j]
+            right = ct[j+1:]
+            ct = left + ct[j].upper() + right
+
+          j = i + 1
+        
+        else:
+          ct += title[i].lower()
+        
+        i += 1
+
+      return ct
