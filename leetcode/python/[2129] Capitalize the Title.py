@@ -19,3 +19,10 @@ class Solution:
         t += ' '
         
       return t.strip()
+
+'''
+- solved using join function and ternary operator
+'''
+class Solution:
+    def capitalizeTitle(self, title: str) -> str:
+      return " ".join(word.lower() if len(word) < 3 else word.capitalize() for word in title.split(' '))
